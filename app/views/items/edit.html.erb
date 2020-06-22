@@ -1,0 +1,8 @@
+<h1>Edit item</h1>
+
+<%= simple_form_for [ @list, @item ] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :note %>
+  <%= f.input :quantity %>
+  <%= f.submit "Edit", class: "btn btn-primary" %>
+<% end %>
