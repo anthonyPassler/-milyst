@@ -12,7 +12,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.create(list_params)
+    @list = List.new(list_params)
     if @list.save
       redirect_to lists_path
     else
