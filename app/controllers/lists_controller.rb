@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
   def index
-    @lists = List.all
+    @lists = policy_scope(List).order(created_at: :desc)
   end
 
   def shows
@@ -9,10 +9,13 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
+    authorize @list
   end
 
   def create
     @list = List.new(list_params)
+    authorize @list
+    @list.user = current_user
     if @list.save
       redirect_to lists_path
     else
@@ -44,5 +47,6 @@ class ListsController < ApplicationController
 
   def set_list
     @list = List.find(params[:id])
+    authorize @list
   end
 end

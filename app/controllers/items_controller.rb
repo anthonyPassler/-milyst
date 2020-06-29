@@ -3,12 +3,15 @@ class ItemsController < ApplicationController
   before_action :set_list, only: [:new, :create, :edit, :update, :toggle_complete]
   def new
     @item = Item.new
+    authorize @item
     @item.list = @list
   end
 
   def create
     @item = Item.new(item_params)
+    authorize @item
     @item.list = @list
+    @item.user = current_user
     if @item.save
       redirect_to list_path(@list)
     else
@@ -50,6 +53,7 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+    authorize @item
   end
 
   def set_list
