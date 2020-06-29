@@ -17,6 +17,10 @@ class ItemPolicy < ApplicationPolicy
     user_authentication
   end
 
+  def toggle_complete?
+    user_authentication
+  end
+
   private
 
   def user_authentication
