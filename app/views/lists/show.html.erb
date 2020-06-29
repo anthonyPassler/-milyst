@@ -1,8 +1,17 @@
 <h1>list show page</h1>
 <%= link_to "Add Item", new_list_item_path(@list) %>
 <% @list.items.each do |item| %>
-  <h3><%= item.name %>
-    <%= link_to "<i class='fas fa-pen'></i>".html_safe, edit_list_item_path(@list, item) %>
-    <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, item_path(item), method: :delete, data: { confirm: "Are you sure?"} %>
-  </h3>
+  <% if item.complete %>
+    <h3><%= link_to toggle_complete_list_item_path(@list, item), method: :patch do %>
+          <s><%= item.name %></s>
+        <% end %>
+      <%= link_to "<i class='fas fa-pen'></i>".html_safe, edit_list_item_path(@list, item) %>
+      <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, item_path(item), method: :delete, data: { confirm: "Are you sure?"} %>
+    </h3>
+  <% else %>
+    <h3><%= link_to item.name, toggle_complete_list_item_path(@list, item), method: :patch %>
+      <%= link_to "<i class='fas fa-pen'></i>".html_safe, edit_list_item_path(@list, item) %>
+      <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, item_path(item), method: :delete, data: { confirm: "Are you sure?"} %>
+    </h3>
+  <% end %>
 <% end %>

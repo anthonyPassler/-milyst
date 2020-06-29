@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update, :destroy]
-  before_action :set_list, only: [:new, :create, :edit, :update]
+  before_action :set_item, only: [:edit, :update, :destroy, :toggle_complete]
+  before_action :set_list, only: [:new, :create, :edit, :update, :toggle_complete]
   def new
     @item = Item.new
     @item.list = @list
@@ -30,6 +30,15 @@ class ItemsController < ApplicationController
   def destroy
     @list = @item.list
     @item.destroy
+    redirect_to list_path(@list)
+  end
+
+  def toggle_complete
+    if @item.complete
+      @item.update(complete: false)
+    else
+      @item.update(complete: true)
+    end
     redirect_to list_path(@list)
   end
 
