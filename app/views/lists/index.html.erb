@@ -1,5 +1,7 @@
 <h1>All my lists</h1>
-<%= link_to "Create list", new_list_path %>
+<% if policy(List).create? %>
+  <%= link_to "Create list", new_list_path %>
+<% end %>
 <% @lists.each do |list| %>
   <h2><%= link_to "#{list.name}", list_path(list) %>
     <%= link_to "<i class='fas fa-pen'></i>".html_safe, edit_list_path(list) %>
