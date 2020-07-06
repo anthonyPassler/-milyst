@@ -1,0 +1,19 @@
+.list-container {
+  margin-top: 16px;
+}
+.list-name {
+  color: $dark-gray;
+  font-size: 24px;
+  &:hover {
+    text-decoration: none;
+    color: $milyst-blue;
+  }
+}
+.list-icon {
+  color: $dark-gray;
+  margin-left: 4px;
+  &:hover {
+    text-decoration: none;
+    color: $milyst-blue;
+  }
+}

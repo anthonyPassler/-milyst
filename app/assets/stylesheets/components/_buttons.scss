@@ -1,0 +1,16 @@
+.create-btn {
+  border-radius: 50px;
+  border: none !important;
+  padding: 8px 16px;
+  color: white;
+  background-color: $milyst-blue;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  transition: 0.3s;
+  &:hover {
+    color: white;
+    opacity: 0.9;
+    text-decoration: none;
+  }
+}
