@@ -34,7 +34,7 @@ document.addEventListener('turbolinks:load', () => {
   const checkboxes = document.querySelectorAll('.checkbox');
 
   checkboxes.forEach(checkbox =>  checkbox.addEventListener('click', (event) => {
-    const parentDiv = event.target.parentNode.parentNode
+    const parentDiv = event.target.parentNode.parentNode.parentNode
     parentDiv.querySelector('.list-name').classList.toggle("strike-through");
     parentDiv.querySelector('.list-icon').classList.toggle("hidden");
   }));
