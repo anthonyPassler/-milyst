@@ -6,7 +6,7 @@
 <% @list.items.order("created_at DESC").each do |item| %>
   <div class="list-item d-flex justify-content-between">
     <% if item.complete %>
-      <%= link_to toggle_complete_list_item_path(@list, item), method: :patch do %>
+      <%= link_to toggle_complete_list_item_path(@list, item), method: :patch, remote: true do %>
         <s><%= item.name.titleize %></s>
       <% end %>
       <div>
@@ -14,7 +14,7 @@
         <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, item_path(item), method: :delete, data: { confirm: "Are you sure?"}, class: "list-icon"  %>
       </div>
     <% else %>
-      <%= link_to item.name.titleize, toggle_complete_list_item_path(@list, item), method: :patch %>
+      <%= link_to item.name.titleize, toggle_complete_list_item_path(@list, item), method: :patch, remote: true %>
       <div>
         <%= link_to "<i class='fas fa-pen'></i>".html_safe, edit_list_item_path(@list, item), class: "list-icon" %>
         <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, item_path(item), method: :delete, data: { confirm: "Are you sure?"}, class: "list-icon" %>
