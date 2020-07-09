@@ -30,11 +30,13 @@
   width: 25px;
   border-radius: 50px;
   background-color: $milyst-blue;
+  opacity: 0.4;
 }
 
 /* When the checkbox is checked, add a blue background */
 .circle-box input:checked ~ .checkmark {
   background-color: $milyst-blue;
+  opacity: 1;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

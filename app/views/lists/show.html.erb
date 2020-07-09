@@ -14,7 +14,15 @@
         <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, item_path(item), method: :delete, data: { confirm: "Are you sure?"}, class: "list-icon"  %>
       </div>
     <% else %>
-      <%= link_to item.name.titleize, toggle_complete_list_item_path(@list, item), method: :patch, remote: true %>
+      <div class="items">
+        <%= link_to item.name.titleize, toggle_complete_list_item_path(@list, item), method: :patch, remote: true %>
+        <% unless item.note.empty? %>
+          <p>Notes: <%= item.note %></p>
+        <% end %>
+        <% unless item.quantity.nil? %>
+          <p>Quantity: <%= item.quantity %></p>
+        <% end %>
+      </div>
       <div>
         <%= link_to "<i class='fas fa-pen'></i>".html_safe, edit_list_item_path(@list, item), class: "list-icon" %>
         <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, item_path(item), method: :delete, data: { confirm: "Are you sure?"}, class: "list-icon" %>
