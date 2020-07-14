@@ -1,0 +1,33 @@
+<style>
+  body {
+    font-family: sans-serif;
+  }
+  p {
+    margin-bottom: 4px;
+    margin-top: 4px;
+  }
+  h3 {
+    margin-bottom: 4px;
+    margin-top: 4px;
+  }
+</style>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Please see below your shopping list <strong><%= @list.name.titleize  %></strong> </p>
+
+    <% @list.items.each do |item| %>
+      --------------------------
+      <h3><%= item.name.titleize %></h3>
+      <% unless item.note.empty? %>
+        <p>Note: <%= item.note %></p>
+      <% end %>
+      <% unless item.quantity.nil? %>
+        <p>Quantity: <%= item.quantity %></p>
+      <% end %>
+    <% end %>
+  </body>
+</html>

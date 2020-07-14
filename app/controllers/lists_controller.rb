@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :update, :destroy, :new_list_email]
   def index
     @lists = policy_scope(List).order(created_at: :desc)
   end
@@ -37,6 +37,14 @@ class ListsController < ApplicationController
   def destroy
     @list.destroy
     redirect_to lists_path
+  end
+
+  def new_list_email
+    @user = current_user
+
+    UserMailer.list_send(@list, @user).deliver_now
+    flash[:notice] = "List has been sent."
+    redirect_to list_path(@list)
   end
 
   private

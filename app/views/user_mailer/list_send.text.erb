@@ -1,0 +1,11 @@
+Please see below your shopping list <%= @list.name  %>
+======================================================
+
+List Items:
+--------------------------
+
+<% @list.items.each do |item| %>
+  Name: <%= item.name %>
+  Note: <%= item.note %>
+  Quantity: <%= item.quantity %>
+<% end %>

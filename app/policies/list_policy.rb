@@ -21,6 +21,10 @@ class ListPolicy < ApplicationPolicy
     user_authentication
   end
 
+  def new_list_email?
+    return true
+  end
+
   private
 
   def user_authentication

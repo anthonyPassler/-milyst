@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :lists do
+    member do
+      get 'new_list_email'
+    end
     resources :items, only: [:index, :show, :new, :create, :edit, :update] do
       member do
         patch 'toggle_complete'
