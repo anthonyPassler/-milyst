@@ -1,7 +1,8 @@
 class UserMailer < ApplicationMailer
-  def list_send(list, user)
+  def list_send(list, user, email)
     @list = list
     @user = user
-    mail(to: @user.email, subject: "Your Shopping List")
+    @email = email
+    mail(to: @email, subject: "Your Shopping List")
   end
 end
