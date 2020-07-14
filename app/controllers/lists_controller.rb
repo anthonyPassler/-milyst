@@ -41,8 +41,9 @@ class ListsController < ApplicationController
 
   def new_list_email
     @user = current_user
+    @email = params[:email]
 
-    UserMailer.list_send(@list, @user).deliver_now
+    UserMailer.list_send(@list, @user, @email).deliver_now
     flash[:notice] = "List has been sent."
     redirect_to list_path(@list)
   end

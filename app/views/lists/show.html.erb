@@ -30,5 +30,29 @@
     <% end %>
   </div>
 <% end %>
-<%= link_to "send mail", new_list_email_list_path(@list), class: "btn btn-primary mt-3" %>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#exampleModal">
+  Share list
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Enter email</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_tag new_list_email_list_path(@list), :method => "GET" do %>
+          <%= text_field_tag :email, nil, :placeholder => 'Enter email address...' %>
+          <%= submit_tag "Send", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
