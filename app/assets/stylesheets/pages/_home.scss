@@ -1,1 +1,30 @@
-// Specific CSS for your home-page
+.how-it-works {
+  text-align: center;
+  margin-top: 280px;
+  margin: 0 auto;
+  h2 {
+    font-weight: bold;
+    font-size: 28px;
+    color: $milyst-purple;
+    margin-bottom: 30px;
+    line-height: 1;
+    &:after {
+        content: "";
+        display: block;
+        width: 80px;
+        padding-top: 8px;
+        border-bottom: 8px solid $milyst-green;
+        margin: auto;
+    }
+  }
+  h3 {
+    font-weight: bold;
+    font-size: 18px;
+    color: $milyst-purple;
+    max-width: 80%;
+    margin: auto;
+  }
+  img {
+    margin: 24px auto ;
+  }
+}

@@ -1,0 +1,19 @@
+.banner {
+  padding: 16px 8px 200px 8px;
+  background-color: $milyst-purple;
+  text-align: center;
+  position: relative;
+  @include angle(after);
+  h1 {
+    margin: 32px auto;
+  }
+  .iphone-container {
+    position: absolute;
+    left: 50%;
+  }
+  .iphone {
+    margin: 40px auto;
+    position: relative;
+    left: -50%
+  }
+}

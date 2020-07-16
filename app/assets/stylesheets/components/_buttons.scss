@@ -14,3 +14,15 @@
     text-decoration: none;
   }
 }
+.signup-btn {
+  padding: 8px 16px;
+  background-color: $milyst-green;
+  color: $milyst-purple;
+  transition: 0.3s;
+  display: inline-block;
+  &:hover {
+    text-decoration: none;
+    color: $milyst-purple;
+    background-color: $milyst-hover-green;
+  }
+}
