@@ -17,11 +17,22 @@
 body {
   background-color: white;
 }
+button, .remove-shadow {
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+.center {
+  text-align: center;
+}
+.min-height {
+  min-height: calc(100vh - 192px)
+}
 .green {
   color: $milyst-green;
 }
 .container-sm {
-  padding: 15px;
+  padding: 30px 15px;
 }
 .strike-through {
   text-decoration: line-through;
@@ -33,4 +44,12 @@ h1 {
   font-size: 32px;
   font-weight: bold;
   color: white;
+}
+h2 {
+  color: $dark-gray;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  margin-top: 4px;
 }

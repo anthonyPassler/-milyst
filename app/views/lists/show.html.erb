@@ -1,58 +1,61 @@
-<div class="list-header d-flex">
-  <%= link_to "<i class='fas fa-arrow-circle-left'></i>".html_safe, lists_path, class: "back-arrow" %>
-  <h1><%= @list.name.titleize %></h1>
-</div>
-<%= link_to "Add Item", new_list_item_path(@list), class: "create-btn" %>
-<% @list.items.order("created_at DESC").each do |item| %>
-  <div class="list-item d-flex justify-content-between">
-    <% if item.complete %>
-      <%= link_to toggle_complete_list_item_path(@list, item), method: :patch, remote: true do %>
-        <s><%= item.name.titleize %></s>
-      <% end %>
-      <div>
-        <%= link_to "<i class='fas fa-pen'></i>".html_safe, edit_list_item_path(@list, item), class: "list-icon"  %>
-        <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, item_path(item), method: :delete, data: { confirm: "Are you sure?"}, class: "list-icon"  %>
-      </div>
-    <% else %>
-      <div class="items">
-        <%= link_to item.name.titleize, toggle_complete_list_item_path(@list, item), method: :patch, remote: true %>
-        <% unless item.note.empty? %>
-          <p>Notes: <%= item.note %></p>
-        <% end %>
-        <% unless item.quantity.nil? %>
-          <p>Quantity: <%= item.quantity %></p>
-        <% end %>
-      </div>
-      <div>
-        <%= link_to "<i class='fas fa-pen'></i>".html_safe, edit_list_item_path(@list, item), class: "list-icon" %>
-        <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, item_path(item), method: :delete, data: { confirm: "Are you sure?"}, class: "list-icon" %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+<div class="container-sm">
+ <div class="list-header d-flex">
+   <%= link_to "<i class='fas fa-arrow-circle-left'></i>".html_safe, lists_path, class: "back-arrow" %>
+   <h2><%= @list.name.titleize %></h2>
+ </div>
+ <%= link_to "Add Item", new_list_item_path(@list), class: "create-btn" %>
+ <% @list.items.order("created_at DESC").each do |item| %>
+   <div class="list-item d-flex justify-content-between">
+     <% if item.complete %>
+       <%= link_to toggle_complete_list_item_path(@list, item), method: :patch, remote: true do %>
+         <s><%= item.name.titleize %></s>
+       <% end %>
+       <div>
+         <%= link_to "<i class='fas fa-pen'></i>".html_safe, edit_list_item_path(@list, item), class: "list-icon"  %>
+         <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, item_path(item), method: :delete, data: { confirm: "Are you sure?"}, class: "list-icon"  %>
+       </div>
+     <% else %>
+       <div class="items">
+         <%= link_to item.name.titleize, toggle_complete_list_item_path(@list, item), method: :patch, remote: true %>
+         <% unless item.note.empty? %>
+           <p>Notes: <%= item.note %></p>
+         <% end %>
+         <% unless item.quantity.nil? %>
+           <p>Quantity: <%= item.quantity %></p>
+         <% end %>
+       </div>
+       <div>
+         <%= link_to "<i class='fas fa-pen'></i>".html_safe, edit_list_item_path(@list, item), class: "list-icon" %>
+         <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, item_path(item), method: :delete, data: { confirm: "Are you sure?"}, class: "list-icon" %>
+       </div>
+     <% end %>
+   </div>
+ <% end %>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#exampleModal">
-  Share list
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Enter email</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= form_tag new_list_email_list_path(@list), :method => "GET" do %>
-          <%= text_field_tag :email, nil, :placeholder => 'Enter email address...' %>
-          <%= submit_tag "Send", class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+ <!-- Button trigger modal -->
+<div class="center">
+  <button type="button" class="signup-btn mt-3" data-toggle="modal" data-target="#exampleModal">
+    Share list
+  </button>
 </div>
 
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">Enter email</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <%= form_tag new_list_email_list_path(@list), :method => "GET" do %>
+           <%= text_field_tag :email, nil, :placeholder => 'Enter email address...', style: "width: 100%; height: 40px;" %>
+           <%= submit_tag "Send", class: "signup-btn remove-shadow mt-3", style: "width: 100%;" %>
+         <% end %>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>

@@ -1,8 +1,11 @@
-<h1>Add new item</h1>
+<div class="container-sm">
+  <h2>Add new item</h2>
 
-<%= simple_form_for [ @list, @item ] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :note %>
-  <%= f.input :quantity %>
-  <%= f.submit "Create", class: "create-btn" %>
-<% end %>
+  <%= simple_form_for [ @list, @item ] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :note %>
+    <%= f.input :quantity %>
+    <%= f.submit "Create", class: "create-btn" %>
+  <% end %>
+
+</div>
