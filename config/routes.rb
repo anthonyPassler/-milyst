@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get "pages/profile", to: "pages#profile", as: "profile"
   resources :lists do
     member do
       get 'new_list_email'

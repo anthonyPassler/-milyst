@@ -1,0 +1,7 @@
+<div class="container-sm">
+  <% if current_user.photo.attached? %>
+    <%= cl_image_tag current_user.photo.key, height: 80, :quality=>60, crop: :mfit, class: "avatar-square dropdown-toggle", alt: "profile image", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+  <% else %>
+      <%= image_tag "profile.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <% end %>
+</div>
