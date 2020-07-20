@@ -1,6 +1,6 @@
 <div class="container-sm">
  <div class="list-header d-flex">
-   <%= link_to "<i class='fas fa-arrow-circle-left'></i>".html_safe, lists_path, class: "back-arrow" %>
+   <%= link_to "<i class='fas fa-chevron-left'></i>".html_safe, lists_path, class: "back-arrow" %>
    <h2><%= @list.name.titleize %></h2>
  </div>
  <%= link_to "Add Item", new_list_item_path(@list), class: "create-btn" %>
