@@ -1,4 +1,6 @@
-<%= simple_form_for(@list) do |f| %>
-  <%= f.input :name, label: false, placeholder: "Enter list name" %>
-  <%= f.submit "Create", class: "create-btn" %>
-<% end %>
+<div class="container-sm">
+  <%= simple_form_for(@list) do |f| %>
+    <%= f.input :name, label: false, placeholder: "Enter list name" %>
+    <%= f.submit "Create", class: "create-btn" %>
+  <% end %>
+</div>
