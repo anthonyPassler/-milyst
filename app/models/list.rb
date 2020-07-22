@@ -3,5 +3,5 @@ class List < ApplicationRecord
   belongs_to :user
 
   validates :name, presence: true
-  validates :name, uniqueness: true
+  validates :name, uniqueness: { case_sensitive: false }
 end
