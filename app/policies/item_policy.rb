@@ -10,7 +10,7 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def create?
-    user_authentication
+    true
   end
 
   def update?

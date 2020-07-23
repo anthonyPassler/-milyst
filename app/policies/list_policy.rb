@@ -10,7 +10,7 @@ class ListPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    true
   end
 
   def update?
@@ -22,7 +22,7 @@ class ListPolicy < ApplicationPolicy
   end
 
   def new_list_email?
-    return true
+    true
   end
 
   private
