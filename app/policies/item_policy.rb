@@ -1,16 +1,16 @@
 class ItemPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
 
   def show?
-    true
+    user_authentication
   end
 
   def create?
-    true
+    user_authentication
   end
 
   def update?
