@@ -36,6 +36,9 @@ button, .remove-shadow {
 }
 .strike-through {
   text-decoration: line-through;
+  &:hover {
+    text-decoration: line-through;
+  }
 }
 .hidden {
   display: none;
