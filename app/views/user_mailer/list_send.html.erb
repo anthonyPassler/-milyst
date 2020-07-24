@@ -10,6 +10,9 @@
     margin-bottom: 4px;
     margin-top: 4px;
   }
+  .items {
+    margin: 32px auto;
+  }
 </style>
 <!DOCTYPE html>
 <html>
@@ -17,17 +20,21 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>Please see below your shopping list <strong><%= @list.name.titleize  %></strong> </p>
-
-    <% @list.items.each do |item| %>
-      --------------------------
-      <h3><%= item.name.titleize %></h3>
-      <% unless item.note.empty? %>
-        <p>Note: <%= item.note %></p>
+    <p> <strong><%= @list.user.first_name %> <%= @list.user.last_name %></strong> has sent you a shopping list <strong><%= @list.name.titleize  %></strong> </p>
+    <div class="items">
+      <% @list.items.each do |item| %>
+        --------------------------
+        <h3><%= item.name.titleize %></h3>
+        <% unless item.note.empty? %>
+          <p>Note: <%= item.note %></p>
+        <% end %>
+        <% unless item.quantity.nil? %>
+          <p>Quantity: <%= item.quantity %></p>
+        <% end %>
       <% end %>
-      <% unless item.quantity.nil? %>
-        <p>Quantity: <%= item.quantity %></p>
-      <% end %>
-    <% end %>
+    </div>
+    <div>
+      <p><strong>Thank you!</strong></p>
+    </div>
   </body>
 </html>
