@@ -7,22 +7,22 @@
 .list-item {
   padding: 8px 0;
   border-bottom: 1px solid #999999;
-  a {
-    text-decoration: none;
-    p {
-      color: $dark-gray;
-      font-size: 20px;
-      font-weight: bold;
-      &:hover {
-        color: $milyst-blue;
-      }
-    }
-  }
 }
 .items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   p {
     font-size: 12px;
     margin: 0;
     color: $milyst-light-gray;
+  }
+  h4 {
+    color: $dark-gray;
+    font-size: 20px;
+    margin-bottom: 0;
+    &:hover {
+      color: $milyst-blue;
+    }
   }
 }

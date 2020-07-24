@@ -32,10 +32,15 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   const checkboxes = document.querySelectorAll('.checkbox');
-
+  const items = document.querySelectorAll(".items")
   checkboxes.forEach(checkbox =>  checkbox.addEventListener('click', (event) => {
     const parentDiv = event.target.parentNode.parentNode.parentNode
     parentDiv.querySelector('.list-name').classList.toggle("strike-through");
     parentDiv.querySelector('.list-icon').classList.toggle("hidden");
+  }));
+
+  items.forEach(item => item.addEventListener('click', (event) => {
+    item.querySelector('h4').classList.toggle("strike-through");
+    item.querySelectorAll('p').forEach(p => p.classList.toggle("hidden"));
   }));
 });
