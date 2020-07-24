@@ -27,3 +27,11 @@
     background-color: $milyst-hover-green;
   }
 }
+.back-arrow {
+  color: $milyst-purple;
+  font-size: 24px;
+  &:hover {
+    color: $milyst-purple;
+    opacity: 0.8;
+  }
+}
