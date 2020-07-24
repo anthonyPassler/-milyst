@@ -8,7 +8,7 @@
    <div class="list-item d-flex justify-content-between">
      <% if item.complete %>
        <%= link_to toggle_complete_list_item_path(@list, item), method: :patch, remote: true do %>
-         <s><%= item.name.titleize %></s>
+         <p id="name-<%= item.id %>"><s><%= item.name.titleize %></s></p>
        <% end %>
        <div>
          <%= link_to "<i class='fas fa-pen'></i>".html_safe, edit_list_item_path(@list, item), class: "list-icon"  %>
@@ -16,7 +16,9 @@
        </div>
      <% else %>
        <div class="items">
-         <%= link_to item.name.titleize, toggle_complete_list_item_path(@list, item), method: :patch, remote: true %>
+         <%= link_to toggle_complete_list_item_path(@list, item), method: :patch, remote: true do %>
+          <p id="name-<%= item.id %>"><%= item.name.titleize %></p>
+         <% end %>
          <% unless item.note.empty? %>
            <p>Notes: <%= item.note %></p>
          <% end %>

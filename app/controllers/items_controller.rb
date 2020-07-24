@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to list_path(@list)
+      redirect_to list_path(@list, anchor: "name-#{@item.id}")
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
     else
       @item.update(complete: true)
     end
-    redirect_to list_path(@list)
+    redirect_to list_path(@list, anchor: "name-#{@item.id}")
   end
 
   private

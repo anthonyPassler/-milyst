@@ -1,7 +1,11 @@
 <div class="banner">
   <%= image_tag "milyst-logo.png", style: "width: 150px; height: auto;", alt: "milyst logo" %>
   <h1>The <span class="green">easiest</span> way to create and share your shopping lists.</h1>
-  <%= link_to "SIGN UP NOW", new_user_registration_path, class: "signup-btn"  %>
+  <% if user_signed_in? %>
+    <%= link_to "MY LISTS", lists_path, class: "signup-btn"  %>
+  <% else %>
+    <%= link_to "SIGN UP NOW", new_user_registration_path, class: "signup-btn"  %>
+  <% end %>
   <div class="iphone-container">
     <%= image_tag "iphone.png", class: "iphone", style: "width: 200px; height: auto;" , alt: "iphone image" %>
   </div>
@@ -14,11 +18,16 @@
   </div>
   <div class="steps">
     <%= image_tag "lists.svg", style: "width: 200px; height: auto;", alt: "illustration of a person signing up" %>
-    <h3>Easily start creating <span class="green">organised</span> lists</h3>
+    <h3>Easily start creating <span class="green">organised</span> lists and mark your items as complete with a single tap</h3>
   </div>
   <div class="steps">
     <%= image_tag "share.svg", style: "width: 200px; height: auto;", alt: "illustration of a person signing up" %>
     <h3>Easily <span class="green">share</span> your lists with family and friends</h3>
   </div>
-  <%= link_to "SIGN UP NOW", new_user_registration_path, class: "signup-btn"  %>
+  <% if !user_signed_in? %>
+    <%= link_to "SIGN UP NOW", new_user_registration_path, class: "signup-btn"  %>
+  <% end %>
+  <div>
+    <a href="#navbar"><i class="fas fa-arrow-alt-circle-up back-arrow"></i></a>
+  </div>
 </div>
