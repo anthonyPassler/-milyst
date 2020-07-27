@@ -16,18 +16,6 @@ module Milyst
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
-    config.action_mailer.smtp_settings = {
-      address: 'smtp.postmarkapp.com',
-      port: 587,
-      domain: 'milyst.xyz',
-      user_name: ENV['POSTMARK_API_TOKEN'],
-      password: ENV['POSTMARK_API_TOKEN'],
-      authentication:       :plain,
-      enable_starttls_auto: true
-    }
-
-
-
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
