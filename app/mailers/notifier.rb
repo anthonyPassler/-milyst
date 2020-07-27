@@ -7,6 +7,7 @@ class Notifier < ActionMailer::Base
   end
 
   def reset_password_instructions(record,token,options)
+    @token = token
     devise_mail(record, :reset_password_instructions)
   end
 
