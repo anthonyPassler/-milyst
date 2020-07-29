@@ -1,0 +1,6 @@
+saturday_shopping:
+  name: "Saturday Shopping"
+  user: users(:anthony)
+monday_shopping:
+  name: "Monday Shopping"
+  user: users(:anthony)
