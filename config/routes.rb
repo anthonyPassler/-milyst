@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :items, only: [ :index, :show, :new, :create, :edit, :update ] do
       member do
         patch 'toggle_complete'
+        patch :move
       end
     end
   end
