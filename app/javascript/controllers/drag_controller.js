@@ -14,6 +14,8 @@ import Rails from "@rails/ujs"
 export default class extends Controller {
   connect() {
     this.sortable = Sortable.create(this.element, {
+      handle: '.glyphicon-move',
+      animation: 150,
       onEnd: this.end.bind(this)
     })
   }
