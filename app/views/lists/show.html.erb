@@ -16,6 +16,9 @@
            <p>Quantity: <%= item.quantity %></p>
          <% end %>
        </div>
+       <div style="background-color: white; flex: 2;" class="glyphicon glyphicon-move" aria-hidden="true">
+
+       </div>
        <div>
          <%= link_to "<i class='fas fa-pen'></i>".html_safe, edit_list_item_path(@list, item), class: "list-icon" %>
          <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, item_path(item), method: :delete, data: { confirm: "Are you sure?"}, class: "list-icon" %>
