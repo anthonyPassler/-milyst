@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update, :destroy, :toggle_complete]
-  before_action :set_list, only: [:new, :create, :edit, :update, :toggle_complete]
+  before_action :set_item, only: [:edit, :update, :destroy, :toggle_complete, :move]
+  before_action :set_list, only: [:new, :create, :edit, :update, :toggle_complete, :move]
   def new
     @item = Item.new
     authorize @item
@@ -45,10 +45,15 @@ class ItemsController < ApplicationController
     redirect_to list_path(@list, anchor: "name-#{@item.id}")
   end
 
+  def move
+    @item.insert_at(params[:position].to_i)
+    head :ok
+  end
+
   private
 
   def item_params
-    params.require(:item).permit(:name, :note, :quantity, :complete)
+    params.require(:item).permit(:name, :note, :quantity, :complete, :positon)
   end
 
   def set_item

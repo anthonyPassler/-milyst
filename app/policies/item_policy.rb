@@ -25,6 +25,10 @@ class ItemPolicy < ApplicationPolicy
     user_authentication
   end
 
+  def move?
+    user_authentication
+  end
+
   private
 
   def user_authentication
